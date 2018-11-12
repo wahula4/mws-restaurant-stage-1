@@ -1,3 +1,4 @@
+// list of all files to be cached
 const cacheFiles = [
     '/',
     '/index.html',
@@ -19,6 +20,7 @@ const cacheFiles = [
     '/img/10.jpg',
   ];
 
+  // first time a user visits the page an install event is triggered, page assets are cached
 self.addEventListener('install', function(e) {
  e.waitUntil(
    caches.open('restaurant-cache').then(function(cache) {
@@ -27,10 +29,13 @@ self.addEventListener('install', function(e) {
  );
 });
 
+// triggered for every request that is made, returns cached version of assets instead of beig retrieved from the network
 self.addEventListener('fetch', function(event) {
     console.log(event.request.url);
-   
+   // look in the cache for matching resources
     event.respondWith(
+        // match returns a promise
+        // when file is not found, fetch it from the network and return it to the browser
       caches.match(event.request).then(function(response) {
         return response || fetch(event.request);
       })

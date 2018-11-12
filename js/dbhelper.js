@@ -10,6 +10,7 @@ class DBHelper {
   static get DATABASE_URL() {
     const port = 8887 // Change this to your server port
     return `http://localhost:${port}/data/restaurants.json`;
+    // https://wahula4.github.io/mws-restaurant-stage-1/data/restaurants.json
   }
 
   /**
@@ -166,16 +167,5 @@ class DBHelper {
       marker.addTo(newMap);
     return marker;
   } 
-  /* static mapMarkerForRestaurant(restaurant, map) {
-    const marker = new google.maps.Marker({
-      position: restaurant.latlng,
-      title: restaurant.name,
-      url: DBHelper.urlForRestaurant(restaurant),
-      map: map,
-      animation: google.maps.Animation.DROP}
-    );
-    return marker;
-  } */
-
 }
 
