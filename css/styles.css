@@ -355,16 +355,13 @@ nav h1 a {
 }
 
 @media screen and (max-width: 760px) {
-  /* test */
-  #reviews-container h2 {
-    color: red;
-  }
 
   #restaurant-container,
   #reviews-container {
     width: 100%;
     padding: 10px;
     justify-content: center;
+    box-sizing: border-box
   }
 
   .inside #map-container {
@@ -390,6 +387,7 @@ nav h1 a {
 
   #reviews-list li {
     width: 100%;
+    box-sizing: border-box
   }
 
 
